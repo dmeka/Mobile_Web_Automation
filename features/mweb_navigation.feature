@@ -4,6 +4,7 @@ Feature: Running through the basic smoke test on mobile web
 Scenario Outline: Running through the smoke test cases for mobile web
 
     When Going directly to "<section_href>" front
+
     Then I should be seeing "<front_header_class>" front
     Then I should be going to "<subsection>"
     Then I should verify the "<subsectionfront>"
