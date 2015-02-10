@@ -1,9 +1,13 @@
 When(/^Going directly to "(.*?)" front$/) do |section_href|
   visit base_url(section_href)
-  expect(page).to have_css(".videos-list-container")
-  expect(page).to have_css(".view-more-videos-link")
-  expect(page).to have_css(".media-grid-item.photo-item")
-  expect(page).to have_css(".view-more-galleries-link")
+  video=expect(page).to have_css(".videos-list-container")
+  print video
+  vmore_link=expect(page).to have_css(".view-more-videos-link")
+  print vmore_link
+  photos=expect(page).to have_css(".media-grid-item.photo-item")
+  print photos
+  pmore_link=expect(page).to have_css(".view-more-galleries-link")
+  print pmore_link
 end
 
 Then(/^I should be seeing "(.*?)" front$/) do |front_header_class|
