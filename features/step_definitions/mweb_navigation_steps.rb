@@ -23,6 +23,5 @@ end
 
 Then(/^I should verify the "(.*?)"$/) do |subsectionfront|
   expect(page).to have_css(subsectionfront)
-  subsection_links=find(:xpath,"//ul[@class='subsection-nav']").native.text
-  puts subsection_links
+  #subsection_links=find(:xpath,"//ul[@class='subsection-nav']").native.text
 end
