@@ -26,3 +26,5 @@ Scenario Outline: Running through the smoke test cases for mobile web
       | /money/      | .header-logo.header-money | Business         | .header-logo.header-money.header-money-business         |
       | /money/      | .header-logo.header-money | Personal Finance | .header-logo.header-money.header-money-personal-finance |
       | /money/      | .header-logo.header-money | Cars             | .header-logo.header-money.header-money-cars             |
+      |/tech/        | .header-logo.header-tech  | Personal Tech    | .header-logo.header-tech.header-tech-personal-tech      |
+      |/tech/        | .header-logo.header-tech  | Gaming           | .header-logo.header-tech.header-tech-gaming             |

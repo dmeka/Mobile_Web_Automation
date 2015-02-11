@@ -2,10 +2,11 @@ When(/^we go directly to a "(.*?)"$/) do |front|
   @url = base_url(front)
 	visit @url
 end
-Then(/^I verify the "(.*?)"$/) do |topad|
-  expect(page).to have_css(topad)
+Then(/^I verify the "(.*?)"$/) do |top_ad|
+  expect(page).to have_css(top_ad)
+  sleep 15
 end
-And(/^I verify the bottom ad "(.*?)"$/) do |bottomad|
-  expect(page).to have_css(bottomad)
+And(/^I verify the bottom ad "(.*?)"$/) do |bottom_ad|
+  expect(page).to have_css(bottom_ad)
 end
 
