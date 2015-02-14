@@ -16,6 +16,9 @@ def click_inline_item(firstArticleIndex, lastArticleIndex)
 		#@random_variable=1+rand(lastArticleIndex)
 		#find(:xpath,"//div[@class='inline-group']/a[@class='inline-item '][#@random_variable]").click
 		find(:xpath,"//div[@class='inline-group']/a[@class='inline-item '][#{i}]").click
+		if @url!='http://mhigh.usatoday.com'
+			visit @url
+		end
 		#print @random_variable
 		print i
 		visit_url(@url)

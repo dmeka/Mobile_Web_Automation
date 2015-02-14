@@ -3,7 +3,8 @@ source "https://rubygems.org"
 
 # gem "rails"
 gem 'cucumber'
-gem 'capybara'
+#gem 'capybara'
+
 gem 'rspec-expectations'
 gem 'poltergeist', ">= 1.4.0"
 gem 'selenium'
@@ -13,4 +14,8 @@ gem 'rest-client'
 gem 'curb'
 gem 'fivemat'
 gem 'parallel_tests'
-gem 'link-checker'
+gem ‘mechanize’
+gem ‘wait’
+
+
+gem 'waitfor', '~> 0.1.7'
