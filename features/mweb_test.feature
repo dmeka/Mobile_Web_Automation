@@ -1,9 +1,9 @@
-Feature: Running through the basic smoke test on mobile web
+Feature: Dynamic clicking on the links on the menu picker
 
 @nav
-Scenario: Running through the smoke test cases for mobile web
+Scenario: Dynamic clicking on the links on the menu picker
 
-   When going directly to section front
+   When going directly to section front and clicking on the nav links from the menu picker
 
 
 

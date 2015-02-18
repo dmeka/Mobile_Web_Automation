@@ -1,4 +1,4 @@
-Feature: Verifying the article test cases
+Feature: Verifying the article  aws test cases
 
 @aws
 Scenario Outline: Verifying the article page
