@@ -7,5 +7,3 @@ Then I click on random articles on the page
 Examples:
 |front|
 |/news/|
-|/money/|
-|/life/|

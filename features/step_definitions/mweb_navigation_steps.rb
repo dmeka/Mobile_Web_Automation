@@ -1,5 +1,5 @@
 When(/^Going directly to "(.*?)" front$/) do |section_href|
-  visit base_url(section_href)
+  visit ui_url(section_href)
   video=expect(page).to have_css(".videos-list-container")
   print video
   vmore_link=expect(page).to have_css(".view-more-videos-link")

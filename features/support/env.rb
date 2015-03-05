@@ -10,15 +10,24 @@ require 'mechanize'
 
 # Using the Selenium driver as default so we can pop-open Firefox and get a
 # good warm fuzzy feeling
-
-Capybara.default_driver = :selenium
 #Capybara::Selenium::Driver.new($app, :browser => :chrome)
 
 # Configure the base urls for frontend and backend here
-$mobileweb_url = 'http://mhigh.usatoday.com/'
+#$mobileweb_url = 'http://mhigh.usatoday.com/'
 
-def base_url(path)
-  $mobileweb_url + path
+#def base_url(path)
+  #$mobileweb_url + path
+#end
+
+Capybara.default_driver = :selenium
+
+$base_url = ENV["ACCEPTANCE_TEST_HOST"] || "http://mhigh.usatoday.com"
+Capybara.app_host = $base_url
+
+$bmobileweb_url = 'http://mhigh.kvue.com/'
+
+def bbase_url(path)
+  $bmobileweb_url + path
 end
 
 $mweb_url = 'http://mhigh.usatoday.com/'
@@ -44,19 +53,31 @@ Capybara.app_host = $base_url
 
 
 Capybara.default_driver = :selenium
-
-
-
-
-AfterStep("~@popover") do
-  # Close any transition ads which may have opened
-  # so as not to interfere with the test in progress.
-  ad = first(".partner-overlay-close")
-  ad.click unless ad.nil?
-end
-
-
 Capybara.default_wait_time = 90
+Capybara.default_selector = :css
+World(RSpec::Matchers)
+
+if ENV['HEADLESS']
+  require 'capybara/poltergeist'
+  Capybara.register_driver :poltergeist do |app|
+    Capybara::Poltergeist::Driver.new(
+        app,
+        window_size: [1280, 1024]#,
+    #debug:       true
+    )
+  end
+  Capybara.default_driver    = :poltergeist
+  Capybara.javascript_driver = :poltergeist
+else
+  if ENV['LOCAL']
+    Capybara.default_driver = :selenium
+
+  else
+    require 'selenium'
+    #require_relative 'extensions/fast-selenium'
+    caps = Selenium::WebDriver::Remote::Capabilities.new
+
+    Capybara.default_wait_time = 90
 Capybara.default_selector = :css
 World(RSpec::Matchers)
 
@@ -74,6 +95,13 @@ def ui_url(path)
   else
     path + build_qpm
   end
+end
+
+AfterStep("~@popover") do
+  # Close any transition ads which may have opened
+  # so as not to interfere with the test in progress.
+  ad = first(".partner-overlay-close")
+  ad.click unless ad.nil?
 end
 
 def validate_url(page_url)
@@ -131,7 +159,8 @@ def wait_for_animations()
     sleep 0.5
   end
 end
-
+end
+end
 
 
 

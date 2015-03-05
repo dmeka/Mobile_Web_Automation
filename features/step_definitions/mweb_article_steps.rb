@@ -1,5 +1,6 @@
 When(/^we go directly to any "(.*?)"$/) do |front|
-  visit base_url(front)
+  #visit base_url(front)
+  visit ui_url(front)
   headline= find(:xpath,"//h2[@class='lead-headline']").native.text
   puts headline
 

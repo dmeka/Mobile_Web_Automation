@@ -1,6 +1,5 @@
 When(/^user navigates directly to homepage "(.*?)"$/) do |front|
- @url=base_url(front)
- visit @url
+ visit ui_url(front)
 end
 
 Then(/^I open the nav menu$/) do
@@ -18,7 +17,7 @@ Then(/^I enter various search terms "(.*?)"$/) do |s_terms|
     find(".entry-property.entry-button.search-submit").click
 end
 
-Then(/^I should see the "(.*?)"$/) do |search_results|
+	Then(/^I should see the search_results$/) do
   search_entries_found = find('.search-entries-result').text
   puts search_entries_found
  expect(search_entries_found).to match(/^\d{1,}\s\bEntries found for\b/)

@@ -1,6 +1,5 @@
 When(/^I navigate to section front"(.*?)"$/) do |front|
-   @url=base_url(front)
-  visit @url
+   visit ui_url(front)
 
   page.all('a', :text => ".inline-icon.video-icon")
 end

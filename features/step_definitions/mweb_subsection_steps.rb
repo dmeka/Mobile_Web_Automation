@@ -10,10 +10,10 @@ expect(page).to have_css(".overlay-container")
 nav_links=find(".overlay-container").all("a")
 for i in 1..nav_links.count-1
 	puts i
-	if nav_links="Home" then
+	if nav_links=="Home" then
 		visit('http://mhigh.usatoday.com/news/')
 	end
-	if nav_links=".nav-item-link.has-sub-menu " then
+	if nav_links==".nav-item-link.has-sub-menu " then
        visit('http://mhigh.usatoday.com/news/')
 		end
 
