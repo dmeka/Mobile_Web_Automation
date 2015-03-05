@@ -86,6 +86,11 @@ end
 
 Then(/^I should see the lead popular video with the title duration and video icon$/) do
 expect(page).to have_css(".video-items-container.padded-container.first-video-item") #This is to verify that there is a lead video on the page
+leadVideo=find(".media-grid-item.video-first")
+leadVideo_duration=leadVideo.find(".video-first-duration").native.text
+puts leadVideo_duration
+leadVideo_title=leadVideo.find(".video-first-title").native.text
+puts leadVideo_title
 end
 
 Then(/^I should see four videos below the lead video with title and duration$/) do
@@ -167,9 +172,8 @@ def home_front_mediaindex_videos()
       puts video_duration
       video_title=videos_total[j].find(".video-first-title").native.text
       puts video_title
-      #expect(video_duration).to match(/^\d{2}:\d{2}/)
-      #expect(video_title).to match(/\w/)
-      #expect(videos_total).to match(2)
+      expect(video_duration).to match(/^\d{2}:\d{2}/)
+      expect(video_title).to match(/\w/)
     end
   end
 end
